@@ -4,7 +4,8 @@
 # base_image - Bare bones image with the base packages needed to run Mayan EDMS
 ####
 
-FROM debian:10.0-slim as base_image
+FROM arm32v7/debian:10.0-slim as base_image
+COPY docker/qemu-arm-static /usr/bin/
 
 LABEL maintainer="Roberto Rosario roberto.rosario@mayan-edms.com"
 
