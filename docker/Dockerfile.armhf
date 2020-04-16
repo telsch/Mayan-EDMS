@@ -17,6 +17,7 @@ ENV PYTHONUNBUFFERED=1 \
 
 # Debian package caching
 ARG APT_PROXY
+RUN echo force-unsafe-io > /etc/dpkg/dpkg.cfg.d/force-unsafe-io
 RUN set -x \
 && if [ "${APT_PROXY}" ]; \
     then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy \
